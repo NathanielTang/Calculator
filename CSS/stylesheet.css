@@ -59,3 +59,51 @@ body {
 #equal {
     order :18;
 }
+
+#exponent {
+    order: 2;
+}
+#add {
+    order:3
+}
+#subtract {
+    order: 7
+}
+#multiply {
+    order: 11;
+}
+#divide {
+    order: 15;
+}
+
+#nine {
+    order: 14;
+}
+
+#eight {
+    order: 13;
+}
+
+#seven {
+    order: 12;
+}
+
+#six {
+    order: 10;
+}
+
+#five {
+    order: 9
+}
+#four {
+    order: 8
+}
+#three{
+    order: 6
+}
+#two {
+    order: 5
+}
+#one {
+    order: 4
+}
