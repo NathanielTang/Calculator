@@ -34,6 +34,7 @@ function operate(a,b,operator) {
             result = power(a,b);
             break;
     }
+    console.log(result)
     return result;
 }
 
@@ -49,14 +50,24 @@ function variableAssembler(num) {
     if (temp = "a") {
         a += num
     }
+    if (temp = "b") {
+        b += num
+    }
     console.log(a)
 }
 
 function setOperator (op) {
     operator = op
+    temp = "b"
     console.log(operator)
 }
 
+function AC () {
+    a = "";
+    b = "";
+    operator = "";
+    temp = "a"
+}
 //buttons
 
 const one = document.querySelector('#one')
@@ -100,3 +111,9 @@ divide.addEventListener('click', () => setOperator('/') )
 
 const exponent = document.querySelector('#exponent');
 exponent.addEventListener('click', () => setOperator('^') )
+
+const equal = document.querySelector('#equal');
+equal.addEventListener('click', () => operate(a,b,operator))
+
+const clear = document.querySelector('#clear');
+clear.addEventListener('click', () => AC())

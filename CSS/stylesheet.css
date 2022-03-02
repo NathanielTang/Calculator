@@ -20,12 +20,26 @@ body {
 }
 
 #display {
+    display: flex;
+    align-items: center;
+
     background-color: rgb(189, 166, 137);
-    border-radius: 12.5px;
     width: 420px;
     height: 75px;
+    padding: 10px;
+    border-radius: 12.5px;
     border: 1px solid black;
+
+    
+    direction: rtl;
 }
+
+#displayNum {
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+
+}
+
 
 #button-container {
     background-color: rgb(207, 207, 207);
