@@ -6,7 +6,12 @@ const subtraction = (a,b) => a-b;
 
 const multiplication = (a,b) => a*b;
 
-const division = (a,b) => a/b;
+const division = (a,b) => {
+    if (b===0) {
+        return "undefined"
+    };
+    a/b;
+}
 
 const power = (a,b) => a**b;
 
@@ -19,6 +24,8 @@ let b = "";
 let operator = "";
 let temp = "a"
 let result;
+const displayNum = document.querySelector('#displayNum');
+displayNum.textContent = "0";
 
 function operate(a,b,operator) {
     a = parseFloat(a)
@@ -42,7 +49,7 @@ function operate(a,b,operator) {
             result = power(a,b);
             break;
     }
-    console.log(result)
+    displayNum.textContent = result;
 
     nextOperation()
     return result;
@@ -63,11 +70,11 @@ function nextOperation() {
 function variableAssembler(num) {
     if (temp === "a") {
         a += num
-        console.log(a)
+        displayNum.textContent = a;
     } else
     if (temp === "b") {
         b += num
-        console.log(b)
+        displayNum.textContent = b;
     }
     
 }
@@ -83,6 +90,16 @@ function AC () {
     b = "";
     operator = "";
     temp = "a"
+    displayNum.textContent = "0";
+}
+
+function displayAOrB() {
+    if  (temp === "a") {
+        displayNum.textContent = a;
+    }
+    if (temp === "b") {
+        displayNum.textContent = b;
+    }
 }
 
 //display
@@ -157,5 +174,25 @@ positiveNegative.addEventListener('click', () => {
             b = "-" + b;
         }
     }
+    displayAOrB();
 }
+)
+
+const decimal = document.querySelector('#decimal');
+decimal.addEventListener('click', () => {
+    if (temp === "a") {
+        if (a.includes(".")) {
+            return;
+        }
+        a = a + "."
+        
+    }
+    if (temp === "b") {
+        if (b.includes(".")) {
+            return;
+        }
+        b = b + "."
+        }
+        displayAOrB()
+    }
 )
