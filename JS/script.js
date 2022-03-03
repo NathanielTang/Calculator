@@ -12,10 +12,18 @@ const power = (a,b) => a**b;
 
 //Operator
 
+//global variables
+
+let a = "";
+let b = "";
+let operator = "";
+let temp = "a"
+let result;
+
 function operate(a,b,operator) {
     a = parseFloat(a)
     b = parseFloat(b)
-    let result;
+    
 
     switch (operator) {
         case "+":
@@ -35,17 +43,21 @@ function operate(a,b,operator) {
             break;
     }
     console.log(result)
-    a = result;
-    b = ""
+
+    nextOperation()
     return result;
 }
 
-//global variables
+function nextOperation() {
+    a = result;
+    b = ""
+    temp = "b"
+    console.log(`a is ${a}`)
+    console.log(`b is ${b}`)
+    console.log(temp)
+}
 
-let a = "";
-let b = "";
-let operator = "";
-let temp = "a"
+
 //variable functions
 
 function variableAssembler(num) {
@@ -77,6 +89,9 @@ function AC () {
 
 
 //buttons
+
+const zero = document.querySelector('#zero')
+zero.addEventListener('click', () => variableAssembler("0"))
 
 const one = document.querySelector('#one')
 one.addEventListener('click', () => variableAssembler("1"))
