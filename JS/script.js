@@ -13,8 +13,8 @@ const power = (a,b) => a**b;
 //Operator
 
 function operate(a,b,operator) {
-    a = Number(a)
-    b = Number(b)
+    a = parseFloat(a)
+    b = parseFloat(b)
     let result;
 
     switch (operator) {
@@ -35,6 +35,8 @@ function operate(a,b,operator) {
             break;
     }
     console.log(result)
+    a = result;
+    b = ""
     return result;
 }
 
@@ -47,13 +49,15 @@ let temp = "a"
 //variable functions
 
 function variableAssembler(num) {
-    if (temp = "a") {
+    if (temp === "a") {
         a += num
-    }
-    if (temp = "b") {
+        console.log(a)
+    } else
+    if (temp === "b") {
         b += num
+        console.log(b)
     }
-    console.log(a)
+    
 }
 
 function setOperator (op) {
@@ -68,6 +72,10 @@ function AC () {
     operator = "";
     temp = "a"
 }
+
+//display
+
+
 //buttons
 
 const one = document.querySelector('#one')
@@ -117,3 +125,22 @@ equal.addEventListener('click', () => operate(a,b,operator))
 
 const clear = document.querySelector('#clear');
 clear.addEventListener('click', () => AC())
+
+const positiveNegative = document.querySelector("#positive-negative");
+positiveNegative.addEventListener('click', () => {
+    if (temp === "a") {
+        if (a.includes("-")) {
+            a = a.replace("-", "");
+        } else if (a.includes("-") === false) {
+            a = "-" + a;
+        }
+    }
+    if (temp === "b") {
+        if (b.includes("-")) {
+            b = b.replace("-", "");
+        } else if (b.includes("-") === false) {
+            b = "-" + b;
+        }
+    }
+}
+)
