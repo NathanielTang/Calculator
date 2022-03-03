@@ -9,8 +9,8 @@ const multiplication = (a,b) => a*b;
 const division = (a,b) => {
     if (b===0) {
         return "undefined"
-    };
-    a/b;
+    }
+    return a/b;
 }
 
 const power = (a,b) => a**b;
@@ -49,6 +49,7 @@ function operate(a,b,operator) {
             result = power(a,b);
             break;
     }
+    console.log(result)
     displayNum.textContent = result;
 
     nextOperation()
