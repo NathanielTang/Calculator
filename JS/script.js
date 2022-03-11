@@ -27,10 +27,15 @@ let result;
 const displayNum = document.querySelector('#displayNum');
 displayNum.textContent = "0";
 
-function operate(a,b,operator) {
+function operate(a,b = a,operator) {
     a = parseFloat(a)
-    b = parseFloat(b)
-    
+   
+    if (operator === "") return;
+   if (b === "") {
+       b = a;
+   } else {
+       b = parseFloat(b)
+   }
 
     switch (operator) {
         case "+":
@@ -70,10 +75,12 @@ function nextOperation() {
 
 function variableAssembler(num) {
     if (temp === "a") {
+        if (a.length > 13) return;
         a += num
         displayNum.textContent = a;
     } else
     if (temp === "b") {
+        if (b.length > 13) return;
         b += num
         displayNum.textContent = b;
     }
@@ -162,6 +169,7 @@ clear.addEventListener('click', () => AC())
 const positiveNegative = document.querySelector("#positive-negative");
 positiveNegative.addEventListener('click', () => {
     if (temp === "a") {
+        if (a === "" || a == 0) return;
         if (a.includes("-")) {
             a = a.replace("-", "");
         } else if (a.includes("-") === false) {
@@ -169,6 +177,7 @@ positiveNegative.addEventListener('click', () => {
         }
     }
     if (temp === "b") {
+        if (b == 0) return;
         if (b.includes("-")) {
             b = b.replace("-", "");
         } else if (b.includes("-") === false) {

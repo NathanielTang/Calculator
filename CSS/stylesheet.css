@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+   
 }
 
 #calculator-body {
@@ -22,6 +22,7 @@ body {
 #display {
     display: flex;
     align-items: center;
+    justify-content: end;
 
     background-color: rgb(189, 166, 137);
     width: 420px;
@@ -30,8 +31,6 @@ body {
     border-radius: 12.5px;
     border: 1px solid black;
 
-    
-    direction: rtl;
 }
 
 #displayNum {
