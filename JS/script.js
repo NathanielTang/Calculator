@@ -54,12 +54,24 @@ function operate(a,b = a,operator) {
             result = power(a,b);
             break;
     }
-    console.log(result)
+     console.log(result)
+    if (result > 99999999999999 || result < -99999999999999) {
+        result = "too high/low"
+    } else if (String(result).length > 14) {result = snipResult(result)}
+    
+   
     displayNum.textContent = result;
 
     nextOperation()
     return result;
 }
+
+function snipResult(x) {
+     y = String(x)
+    let result = y.slice(0,13)
+    return result;
+}
+
 
 function nextOperation() {
     a = result;
