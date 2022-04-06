@@ -57,7 +57,11 @@ function operate(a,b = a,operator) {
      console.log(result)
     if (result > 99999999999999 || result < -99999999999999) {
         result = "too high/low"
-    } else if (String(result).length > 14) {result = snipResult(result)}
+    }
+    if (String(result).length > 14) {
+        if (String(result).includes(".")) { 
+            result = round(result)}
+        } else {result = snipResult(result)}
     
    
     displayNum.textContent = result;
@@ -68,10 +72,14 @@ function operate(a,b = a,operator) {
 
 function snipResult(x) {
      y = String(x)
-    let result = y.slice(0,13)
+    let result = y.slice(0,14)
     return result;
 }
-
+function round(x) {
+    y = String(x);
+    let e = 14 - y.indexOf('.') - 1;
+    return Math.round(y * (10 ** e)) / (10 ** e)
+}
 
 function nextOperation() {
     a = result;
