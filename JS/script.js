@@ -138,6 +138,7 @@ function displayAOrB() {
 const zero = document.querySelector('#zero')
 zero.addEventListener('click', () => variableAssembler("0"))
 
+
 const one = document.querySelector('#one')
 one.addEventListener('click', () => variableAssembler("1"))
 
@@ -226,3 +227,25 @@ decimal.addEventListener('click', () => {
         displayAOrB()
     }
 )
+
+
+//Adding keyboard functionality
+
+document.addEventListener('keydown', logKey)
+
+function logKey(k) {
+    console.log(k.key)
+    if (k.key === "0" || k.key === "1" || k.key === "2" || k.key === "3" || k.key === "4" || k.key === "5" || k.key === "6" || k.key === "7" || k.key === "8" || k.key === "9") {
+        variableAssembler(k.key)
+    }
+    // the exponent ^ has been left out because shift+6 (^) would count as two presses
+    if (k.key === "/" || k.key === "*" || k.key === "-" || k.key === "+") {
+        setOperator(k.key)
+    }
+    if (k.key === "=" || k.key === "Enter") {
+        operate(a,b,operator)
+    }
+    if (k.key === "Escape") {
+        AC()
+    }
+}
